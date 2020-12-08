@@ -1,4 +1,4 @@
-package wsclientsdk
+package wsclient
 
 
 const (

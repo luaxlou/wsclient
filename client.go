@@ -1,4 +1,4 @@
-package wsclientsdk
+package wsclient
 
 import (
 	"encoding/json"
@@ -11,7 +11,6 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/gorilla/websocket"
-	"github.com/luaxlou/goutils/tools/debugutils"
 )
 
 const (
@@ -137,7 +136,6 @@ func (wsc *WsClient) keepalive() {
 
 	wsc.conn.SetPongHandler(func(string) error {
 
-
 		wsc.conn.SetReadDeadline(time.Now().Add(pongWait))
 		return nil
 	})
@@ -212,7 +210,7 @@ func (wsc *WsClient) loopReadMessage() {
 
 			if err := json.Unmarshal(message, &res); err != nil {
 
-				debugutils.Println(err.Error())
+				log.Println(err.Error())
 
 				continue
 
