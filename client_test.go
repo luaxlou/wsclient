@@ -8,13 +8,12 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-const HOST = "localhost:9999"
 
 func TestNew(t *testing.T) {
 
 	wsc := New("localhost:9999", http.Header{
-		"MERCHANT_KEY": []string{
-			"1001",
+		"some": []string{
+			"one",
 		},
 	})
 
